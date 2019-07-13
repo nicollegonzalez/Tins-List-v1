@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
-<body>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/signup">Signup</a>
+    <a href="/login">Login</a>
+    <a href="/hey">blah page</a>
 
-  {{{body}}}
+    <a href="/">Home</a>
 
-  <script src="/javascripts/script.js"></script>
-</body>
+    <a href="/posts">view Posts</a>
+
+    <a href="/posts/add-new">Add New Post</a>
+
+    <form action="/logout" method="POST"><button>Logout</button></form>
+
+      {{#if msg}}
+      {{msg}}
+      {{/if}}
+
+    {{{body}}}
+    <script src='/javascripts/script.js'></script>
+  </body>
 </html>
