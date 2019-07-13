@@ -123,14 +123,17 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.GOOGLESECRET,
   callbackURL: "/auth/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
+  console.log(profile);
   User.findOne({ googleID: profile.id })
   .then(user => {
+    console.log("Before if statement")
 
     if (user) {
+      console.log("I GOT HERE")
       return done(null, user);
     } else{
       // this else means we did not find a user with this googleID 
-
+      console.log("NO I AM NOT, I AM HERE ACTUALLY");
       User.findOne({email: profile._json.email})
       .then((userWithThatName)=>{
 
